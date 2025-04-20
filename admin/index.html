@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Shopping Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Set a light background color */
+        }
+        
+        header {
+            background: linear-gradient(to right, #dea520, #c21187); /* Gradient background */
+            color: rgb(236, 234, 234);
+            padding: 1em;
+            text-align: center;
+        }
+        
+        /* Add gradient text color to the header */
+        header h1 {
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            display: inline;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        
+        .product-card {
+            border: 1px solid #3c7fc8;
+            padding: 10px;
+            margin: 10px;
+            max-width: 200px;
+            text-align: center;
+        }
+        
+        footer {
+            background: linear-gradient(to right, #4CAF50, #2196F3); /* Gradient background */
+            color: rgb(205, 46, 46);
+            padding: 1em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Shopping Website</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="product-list">
+    <!-- Product listings will go here -->
+</section>
+
+<footer>
+    <p>&copy; 2024 Shopping Website</p>
+</footer>
+
+<script src="app.js"></script>
+<script>
+    // Sample data for product listings
+const products = [
+{ id: 1, name: 'Product 1', price: 19.99 },
+{ id: 2, name: 'Product 2', price: 29.99 },
+{ id: 3, name: 'Product 3', price: 39.99 },
+// Add more products as needed
+];
+
+// Function to display products on the page
+function displayProducts() {
+const productContainer = document.querySelector('.product-list');
+
+products.forEach(product => {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+    productCard.innerHTML = `
+        <h3>${product.name}</h3>
+        <p>$${product.price.toFixed(2)}</p>
+        <button onclick="addToCart(${product.id})">Add to Cart</button>
+    `;
+    productContainer.appendChild(productCard);
+});
+}
+
+// Function to add a product to the shopping cart
+function addToCart(productId) {
+// Implement logic to add the product to the shopping cart
+console.log(`Product ${productId} added to the cart.`);
+}
+
+// Display products when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+displayProducts();
+});
+
+</script>
+</body>
+</html>
+
